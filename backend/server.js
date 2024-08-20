@@ -31,21 +31,18 @@ router.post('/quiz', async (req, res) => {
                 Your response should not consist of any other words, even a question title, and don't include the ellipses but do include three commas between every question like in the format.
                 `
             }]);
-            console.log(chatCompletion.choices[0].message.content.split(',,,'));
-            console.log(typeof chatCompletion.choices[0].message.content.split(',,,'));
-            console.log('OUTSIDE');
             res.json({
                 level,
                 style,
                 questions: chatCompletion.choices[0].message.content.split(',,,')
             })
     } catch (err) {
-        console.log(err, 'Error: Invalid response');
+        console.error(err, 'Error: Invalid response');
         res.json({
             content: "\n\nThis is a test!",
             level,
             style,
-            questions: ['Why is the sky greeen?', 'Why is grass blue?']
+            questions: ['How do you create a function in JavaScript??', 'What is the valid way to declare a JavaScript variable?', 'What is used to comment a single line in JavaScript?', 'console.log(2 + "2")', 'What method can be used to find the length of a string in JavaScript?']
         })
     }
 })
@@ -86,7 +83,7 @@ router.post('/results', async (req, res) => {
         const result = chatCompletion.choices[0].message.content.split(',,,');
         res.json(result);
     } catch (err) {
-        console.log(err, 'Error: Invalid response');
+        console.error(err, 'Error: Invalid response');
         res.json([
             'Yes ffdsfsf this is wrong',
             'No dasda this is correct dfnsajuifhbsadfjkuhda sfjhsjadf jdsahf'

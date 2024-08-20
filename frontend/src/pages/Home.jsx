@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/Home.css'
 import logo from '../../public/lrnr-logo.png'
-import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <h5 className="header col s12 light">Your guided path to programming enlightenment</h5>
       </div>
       <div className="row center">
-        <Link to='/quizforms' id="download-button" className="btn-large waves-effect waves-light">Begin Journey</Link>
+        <Link to="/quizforms" id="download-button" className="btn-large waves-effect waves-light">Begin Journey</Link>
       </div>
       <br></br>
 

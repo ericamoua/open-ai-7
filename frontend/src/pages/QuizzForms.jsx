@@ -2,10 +2,6 @@ import { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import M from 'materialize-css';
 
-
-
-
-
 /*Create and store user state of each selected selection from the drop down menu*/
 /*Prevent user from submitting quiz generator using useState and prevet default on the form and button */
 /*Fetch the data so that based on the choice the user selects the openAI APi will create questions based on what has been selected*/
@@ -19,8 +15,6 @@ function QuizzForm() {
         questionNum: '',
         style: ''
     });
-
-    
     
     useEffect(() => {
         // Initialize Materialize select elements and allows for use of dropdown menu
@@ -40,14 +34,13 @@ function QuizzForm() {
         e.preventDefault();
       
         // Validation: Check if all fields are filled
-        // if (Object.values(formData).some(value => value === '')) {
-        //   alert('Please fill all fields');
-        //   return;
-        // }
+        if (Object.values(formData).some(value => value === '')) {
+            alert('Please fill all fields');
+            return;
+          }
 
 
         //check url to make sure its spelled correclty
-        //console.log results and form to make sure whats being passed along is the correct information
 
         document.getElementById('loading').style.display = 'block';
         document.getElementById('quizform').style.display = 'none';
@@ -61,7 +54,6 @@ function QuizzForm() {
             body: JSON.stringify(formData), // Sending form data in JSON format
           });
       
-          console.log(response);//conosle logging th response frmo fetching from the localhost to see what us being fetchede
           
           //the code stops here because the reosonse is not ok/ can not fetch from the url.
           if (!response.ok) { // Check if the response is not OK
@@ -72,15 +64,11 @@ function QuizzForm() {
           const responseData = await response.json(); // Process the JSON data from the response
       
           navigate('/quiz', { state: { responseData, formData } }); // Navigate with formData and responseData
-      
+          // // would be navigating to the results page with the formData
         } catch (error) {
           console.error('Error in handleSubmit:', error); // Log the error message
         }
       };
-      
-
-        // // would be navigating to the results page with the formData
-    
 
     return (
         <>
