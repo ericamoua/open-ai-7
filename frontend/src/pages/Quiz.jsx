@@ -116,8 +116,7 @@ export default function Quiz() {
                         <form onSubmit={nextEvaluationHandler}>
                             <h3 className="teal-text">{responseData.style}&apos;s Evaluation</h3>
                             <div className='row'>
-                                <p className="col s6">{responses?.[evaluationIndex].substring(0, 2).toLowerCase() !== 'no' ? 'Correct' : 'Incorrect'}</p>
-                                {console.log(responses?.[evaluationIndex].substring(0, 2).toLowerCase())}
+                                <p className="col s6">{responses?.[evaluationIndex].trim().substring(0, 2).toLowerCase() !== 'no' ? 'Correct' : 'Incorrect'}</p>
                                 <p className="col s6">{responses?.[evaluationIndex]}</p>
                             </div>
                             <button style={{margin: '0 0 50px'}} className="btn">NEXT</button>
