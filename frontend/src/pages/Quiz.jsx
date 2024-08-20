@@ -6,7 +6,7 @@ export default function Quiz() {
     const { responseData } = location.state || {
         level: 'beginner',
         style: 'Normal',
-        questions: ['Why is the sky blue?', 'Why is grass green?']
+        questions: ['How do you create a function in JavaScript???', 'What is the valid way to declare a JavaScript variable?', 'What is used to comment a single line in JavaScript?', 'console.log(2 + "2")', 'What method can be used to find the length of a string in JavaScript?']
     };
     const [questionIndex, setQuestionIndex] = useState(0);
     const [evaluationIndex, setEvaluationIndex] = useState(0);
